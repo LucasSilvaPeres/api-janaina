@@ -1,6 +1,6 @@
 # API Janaina
 
-Projeto acadêmico em Node.js com Express e EJS para cadastro de clientes, veículos e pedidos.
+Projeto em Node.js com Express e EJS para cadastro de clientes, veículos e pedidos.
 
 ## Alunos responsáveis
 
@@ -9,13 +9,12 @@ Projeto acadêmico em Node.js com Express e EJS para cadastro de clientes, veíc
 
 ## Pré-requisitos
 
-- Node.js instalado (recomendado versão 18 ou superior)
-- npm instalado
+- Node.js instalado
 
 ## Como rodar o projeto
 
 1. Acesse a pasta do projeto:
-   cd /home/lucas/Fatec-Repos/Fatec/Aula_Back_janaina/api-janaina
+   /api-janaina
 
 2. Instale as dependências:
    npm install
@@ -28,4 +27,4 @@ Projeto acadêmico em Node.js com Express e EJS para cadastro de clientes, veíc
 
 ## Scripts disponíveis
 
-- npm run dev: inicia o servidor em modo desenvolvimento com recarga automática.
+- npm run dev: inicia o servidor em modo desenvolvimento com hot reload.
