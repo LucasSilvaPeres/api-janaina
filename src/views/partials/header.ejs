@@ -1,0 +1,49 @@
+<% const activePage = (typeof currentPage !== 'undefined') ? currentPage : ''; %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema MVC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-[#1f2328] font-sans">
+  <div class="flex min-h-screen">
+
+    <aside class="w-52 bg-[#f6f8fa] border-r border-[#d0d7de] flex-shrink-0">
+      <div class="px-4 py-3 border-b border-[#d0d7de]">
+        <span class="font-semibold text-sm text-[#1f2328]">⚡ Sistema MVC</span>
+      </div>
+      <nav class="py-2">
+        <a href="/"
+           class="flex items-center gap-2 px-4 py-2 text-sm no-underline
+                  <%= activePage === 'home'
+                    ? 'bg-white border-l-2 border-[#0969da] text-[#0969da] font-medium'
+                    : 'text-[#636c76] hover:bg-white hover:text-[#1f2328]' %>">
+          🏠 Início
+        </a>
+        <a href="/clients"
+           class="flex items-center gap-2 px-4 py-2 text-sm no-underline
+                  <%= activePage === 'clients'
+                    ? 'bg-white border-l-2 border-[#0969da] text-[#0969da] font-medium'
+                    : 'text-[#636c76] hover:bg-white hover:text-[#1f2328]' %>">
+          👤 Clientes
+        </a>
+        <a href="/vehicles"
+           class="flex items-center gap-2 px-4 py-2 text-sm no-underline
+                  <%= activePage === 'vehicles'
+                    ? 'bg-white border-l-2 border-[#0969da] text-[#0969da] font-medium'
+                    : 'text-[#636c76] hover:bg-white hover:text-[#1f2328]' %>">
+          🚗 Veículos
+        </a>
+        <a href="/orders"
+           class="flex items-center gap-2 px-4 py-2 text-sm no-underline
+                  <%= activePage === 'orders'
+                    ? 'bg-white border-l-2 border-[#0969da] text-[#0969da] font-medium'
+                    : 'text-[#636c76] hover:bg-white hover:text-[#1f2328]' %>">
+          📋 Pedidos
+        </a>
+      </nav>
+    </aside>
+
+    <main class="flex-1 p-6 max-w-4xl">

@@ -1,0 +1,41 @@
+<%- include('partials/header', { currentPage }) %>
+
+<div class="mb-5 pb-4 border-b border-[#d0d7de]">
+  <h1 class="text-xl font-semibold text-[#1f2328]">Bem-vindo ao Sistema MVC</h1>
+  <p class="text-sm text-[#636c76] mt-1">Gerencie clientes, veículos e pedidos.</p>
+</div>
+
+<div class="border border-[#d0d7de] rounded-md overflow-hidden">
+  <a href="/clients" class="flex justify-between items-center px-4 py-3 border-b border-[#d0d7de] hover:bg-[#f6f8fa] no-underline">
+    <div class="flex items-center gap-3">
+      <span class="text-lg">👤</span>
+      <div>
+        <p class="text-sm font-medium text-[#1f2328]">Clientes</p>
+        <p class="text-xs text-[#636c76]">Cadastrar e listar clientes</p>
+      </div>
+    </div>
+    <span class="text-[#636c76] text-sm">→</span>
+  </a>
+  <a href="/vehicles" class="flex justify-between items-center px-4 py-3 border-b border-[#d0d7de] hover:bg-[#f6f8fa] no-underline">
+    <div class="flex items-center gap-3">
+      <span class="text-lg">🚗</span>
+      <div>
+        <p class="text-sm font-medium text-[#1f2328]">Veículos</p>
+        <p class="text-xs text-[#636c76]">Cadastrar e gerenciar veículos</p>
+      </div>
+    </div>
+    <span class="text-[#636c76] text-sm">→</span>
+  </a>
+  <a href="/orders" class="flex justify-between items-center px-4 py-3 hover:bg-[#f6f8fa] no-underline">
+    <div class="flex items-center gap-3">
+      <span class="text-lg">📋</span>
+      <div>
+        <p class="text-sm font-medium text-[#1f2328]">Pedidos</p>
+        <p class="text-xs text-[#636c76]">Criar e visualizar pedidos</p>
+      </div>
+    </div>
+    <span class="text-[#636c76] text-sm">→</span>
+  </a>
+</div>
+
+<%- include('partials/footer') %>

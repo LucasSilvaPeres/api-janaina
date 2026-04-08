@@ -1,0 +1,64 @@
+<%- include('partials/header', { currentPage }) %>
+
+<div class="mb-5 pb-4 border-b border-[#d0d7de]">
+  <h1 class="text-xl font-semibold text-[#1f2328]">Veículos</h1>
+</div>
+
+<div class="bg-[#f6f8fa] border border-[#d0d7de] rounded-md p-4 mb-5">
+  <h2 class="text-sm font-semibold text-[#1f2328] mb-3">Cadastrar novo veículo</h2>
+  <form action="/vehicles" method="POST" class="flex gap-3 flex-wrap items-end">
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Marca</label>
+      <input type="text" name="brand" placeholder="Toyota" required
+             class="border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Modelo</label>
+      <input type="text" name="model" placeholder="Corolla" required
+             class="border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm w-32 focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Ano</label>
+      <input type="number" name="year" placeholder="2022" min="1900" max="2100" required
+             class="border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm w-20 focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <button type="submit"
+            class="bg-[#1f883d] hover:bg-[#1a7f37] text-white border border-[#1a7f37] rounded-md px-3 py-1.5 text-sm font-medium">
+      Cadastrar
+    </button>
+  </form>
+</div>
+
+<div class="border border-[#d0d7de] rounded-md overflow-hidden">
+  <% if (vehicles.length === 0) { %>
+    <div class="px-4 py-8 text-center text-sm text-[#636c76]">Nenhum veículo cadastrado.</div>
+  <% } else { %>
+    <% vehicles.forEach(vehicle => { %>
+      <div class="flex justify-between items-center px-4 py-3 border-b border-[#d0d7de] last:border-b-0">
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-medium text-[#1f2328]"><%= vehicle.brand %> <%= vehicle.model %></span>
+          <span class="text-xs text-[#636c76]"><%= vehicle.year %></span>
+          <% if (vehicle.available) { %>
+            <span class="bg-[#dafbe1] text-[#1a7f37] border border-[#aceebb] px-2 py-0.5 rounded-full text-xs font-medium">Disponível</span>
+          <% } else { %>
+            <span class="bg-[#ffd8d3] text-[#cf222e] border border-[#ffb8b0] px-2 py-0.5 rounded-full text-xs font-medium">Vendido</span>
+          <% } %>
+        </div>
+        <div class="flex gap-2">
+          <a href="/vehicles/edit/<%= vehicle.id %>"
+             class="bg-[#f6f8fa] hover:bg-[#f3f4f6] text-[#1f2328] border border-[#d0d7de] rounded-md px-3 py-1.5 text-xs no-underline">
+            Editar
+          </a>
+          <form action="/vehicles/delete/<%= vehicle.id %>" method="POST" class="inline">
+            <button type="submit"
+                    class="bg-[#fff0ee] hover:bg-[#ffe4e1] text-[#cf222e] border border-[#ffc1ba] rounded-md px-3 py-1.5 text-xs">
+              Excluir
+            </button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

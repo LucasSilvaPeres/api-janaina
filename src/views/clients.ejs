@@ -1,0 +1,42 @@
+<%- include('partials/header', { currentPage }) %>
+
+<div class="mb-5 pb-4 border-b border-[#d0d7de]">
+  <h1 class="text-xl font-semibold text-[#1f2328]">Clientes</h1>
+</div>
+
+<div class="bg-[#f6f8fa] border border-[#d0d7de] rounded-md p-4 mb-5">
+  <h2 class="text-sm font-semibold text-[#1f2328] mb-3">Cadastrar novo cliente</h2>
+  <form action="/clients" method="POST" class="flex gap-3 flex-wrap items-end">
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Nome</label>
+      <input type="text" name="name" placeholder="Nome completo" required
+             class="border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Email</label>
+      <input type="email" name="email" placeholder="email@exemplo.com" required
+             class="border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <button type="submit"
+            class="bg-[#1f883d] hover:bg-[#1a7f37] text-white border border-[#1a7f37] rounded-md px-3 py-1.5 text-sm font-medium">
+      Cadastrar
+    </button>
+  </form>
+</div>
+
+<div class="border border-[#d0d7de] rounded-md overflow-hidden">
+  <% if (clients.length === 0) { %>
+    <div class="px-4 py-8 text-center text-sm text-[#636c76]">Nenhum cliente cadastrado.</div>
+  <% } else { %>
+    <% clients.forEach(client => { %>
+      <div class="flex justify-between items-center px-4 py-3 border-b border-[#d0d7de] last:border-b-0">
+        <div>
+          <span class="text-sm font-medium text-[#1f2328]"><%= client.name %></span>
+          <span class="text-xs text-[#636c76] ml-2"><%= client.email %></span>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

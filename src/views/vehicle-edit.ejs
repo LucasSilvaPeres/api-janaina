@@ -1,0 +1,38 @@
+<%- include('partials/header', { currentPage }) %>
+
+<div class="mb-5 pb-4 border-b border-[#d0d7de] flex items-center gap-3">
+  <a href="/vehicles" class="text-sm text-[#0969da] hover:underline no-underline">← Veículos</a>
+  <h1 class="text-xl font-semibold text-[#1f2328]">Editar Veículo</h1>
+</div>
+
+<div class="bg-[#f6f8fa] border border-[#d0d7de] rounded-md p-4 max-w-sm">
+  <form action="/vehicles/update/<%= vehicle.id %>" method="POST" class="flex flex-col gap-4">
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Marca</label>
+      <input type="text" name="brand" value="<%= vehicle.brand %>" placeholder="Marca" required
+             class="w-full border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Modelo</label>
+      <input type="text" name="model" value="<%= vehicle.model %>" placeholder="Modelo" required
+             class="w-full border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-[#1f2328] mb-1">Ano</label>
+      <input type="number" name="year" value="<%= vehicle.year %>" placeholder="Ano" min="1900" max="2100" required
+             class="w-full border border-[#d0d7de] rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0969da]">
+    </div>
+    <div class="flex gap-3 pt-1">
+      <button type="submit"
+              class="bg-[#1f883d] hover:bg-[#1a7f37] text-white border border-[#1a7f37] rounded-md px-4 py-1.5 text-sm font-medium">
+        Salvar
+      </button>
+      <a href="/vehicles"
+         class="bg-[#f6f8fa] hover:bg-[#f3f4f6] text-[#1f2328] border border-[#d0d7de] rounded-md px-4 py-1.5 text-sm no-underline">
+        Cancelar
+      </a>
+    </div>
+  </form>
+</div>
+
+<%- include('partials/footer') %>
